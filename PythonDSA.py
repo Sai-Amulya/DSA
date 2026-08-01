@@ -1,0 +1,138 @@
+# Python is dynamically typed - no need to declare data type - can be changed as well mid program
+x = 1
+print(x)
+x = 'abc'
+print(x)
+
+# Multiple assignments - ok to have multiple types in a single line 
+n, m = 1, 'xyz'
+print(n)
+print(m)
+
+# Increment
+y = 1
+y = y + 1
+print(y)
+y += 1        # x++ gives error
+print(y)
+
+# if statements dont need parantheses for condition or braces -> elif 
+# parantheses needed for multi-line conditions -> && is and in python -> || is or in python
+z = 10
+if z == 0:
+    print("zero")
+elif z == 1:
+    print("one")
+else:
+    print("not binary")
+
+n,m = 1,2
+if ((n > 2 and 
+    n != m) or n == m):
+    n += 1
+
+# while loop - similar to other languages - prints 0 to 4
+a = 0
+while (a < 5):
+    print (a)
+    a += 1
+# for - range 2 and 3 parameters - implicit increment
+for i in range (0, 5):
+    print (i)
+# increment 2
+for i in range (0, 5, 2):
+    print (i)
+# decrement 1 - last parameter -1 mandatory
+for i in range (4, -1, -1):
+    print (i)
+
+# Math 
+# Division is decimal by default
+print (3 / 2 )  # 1.5, other lang -> 1
+print (3 // 2)  # ROUND DOWN -> 1
+print (-3 // 2) # ROUND DOWN -> -2 , expected is -1
+print (int(-3 / 2)) # Workaround -> -1 
+# Modulo for negative integers
+print (10 % 3) # 1 as expected 
+print (-10 % 3) # -2 -> not as intended 
+# Workaround for modulo is to use fmod from math
+import math
+print (math.fmod(-10,3)) # -1
+# Useful helper math functions
+print (math.floor(3/2)) # 1
+print (math.ceil(3/2)) # 2
+print (math.pow(2,3)) # 8
+print (math.sqrt(16)) # 4
+# Max and Min integers are infinities--> Hence no overflow
+float("inf")
+float("-inf")
+print(math.pow(2,200))
+# But still less than infinity
+print (math.pow(2,200) < float("inf")) # True
+
+
+# Lists - dynamic arrays - can be like stack - append, pop, insert - O(n), reassign with index - const. time
+# All 1s in array, -1 is last element 
+# slicing, unpacking - no on left = no on right
+arr = [1, 2, 3]
+print (arr)
+arr.append(4)   # [1, 2, 3, 4]
+print (arr)
+arr.append(5)   # [1, 2, 3, 4, 5]
+print (arr)
+arr.pop()       # [1, 2, 3, 4]
+print (arr)
+arr.insert(1, 7)    # [1, 7, 2, 3, 4]
+print (arr)
+arr[0] = 5      # [5, 7, 2, 3, 4]
+print (arr)
+arr1 = [1] * 4  # [1, 1, 1, 1]
+print(arr1)
+print(arr[-1])  # last element: 4
+print(arr[1:3])    # index one to index 2 - 3 not included -> [7,2]
+p, q, r = [1, 2, 3] # Unpacking
+print (p, q, r)
+
+# Loop through arrays - using index, without index, using index & value -> iterate through multiple arrays using zip
+# using index
+for i in range(len(arr)):
+    print (arr[i])
+# without index
+for num in arr:
+    print(num)
+# using index & value
+for i, n in enumerate(arr):
+    print ((i, n))
+nums1 = [1, 2, 3]
+nums2 = [4, 5, 6]
+for n1, n2 in zip(nums1,nums2):
+    print (n1, n2)
+
+# Reverse, sort, sort reverse, sort strings, custom sort
+# key is lambda which is a function without a name and we're gonna take every single element and call it x and return from that
+# the length of x and this is the key thats gonna be used to sort the string
+# so each string is gonna be mapped to its length and the strings are sorted based on that length - by default in asc order
+nums = [2, 1, 7]
+nums.reverse()
+print (nums)
+nums.sort()
+print(nums)
+nums.sort(reverse = True)
+print(nums)
+arr3 = ["doe", "alice", "jane", "bob"]
+arr3.sort()
+print(arr3)
+arr3.sort(key = lambda x: len(x))
+print(arr3)                         # is gonna be bob then doe even if doe appears before bob in the list
+
+# List comprehension - to initialize a list  & 2-D list comprehension
+arr = [i for i in range(5)] #[0, 1, 2, 3, 4]
+print(arr)
+arr = [i + i for i in range(5)]     #[0, 2, 4, 6, 8]
+print(arr)
+arr4 = [[0] * 4 for i in range(4)]
+print (arr4) # [[0 0 0 0] [0 0 0 0] [0 0 0 0] [0 0 0 0]]
+arr5 = [[0] * 4] * 4    # prints the same, but modifying one row would change in all other rows - not creating unique rows
+
+
+
