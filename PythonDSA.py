@@ -189,4 +189,32 @@ print(mySet1)   # a, b, c
 mySet2 = {i for i in range(5)}
 print(mySet2)   # 0, 1, 2, 3, 4
 
+# HashMap (aka dict) - search, insert, remove in constant time, No duplicate keys, len is no. of keys, value can be modified
+# in for search, pop to remove with key name- to remove key, insert the key with the value and pop the unwanted key value pair
+# three ways to declare: manually declaring each key value, using curly braces, dict comprehension
+# Looping : key, value with .values, key, value using .items
+mydict = {}
+mydict["alice"] = 88
+mydict["bob"] = 77
+print (mydict)
+print (len(mydict)) # 2
+mydict["alice"] = 80
+print(mydict["alice"])
+print ("alice" in mydict)   # True 
+mydict.pop("alice")
+print ("alice" in mydict)   # False
+myMap = {"alex": 90, "ben": 70}
+print (myMap)
+myMap1 = { i: i+2 for i in range(5)}
+print(myMap1)
+for key in mydict:
+    print(key, mydict[key])
+for val in mydict.values():
+    print(val)
+for key,val in mydict.items():
+    print(key,val)
+
+
+
+
 
