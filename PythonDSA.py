@@ -257,6 +257,31 @@ print(arr)
 while arr:
     print(heapq.heappop(arr))   # 1 2 4 5 8
 
+# Functions- def keyword, nested functions have access to outer variables - dont even have to pass the parameters
+def outer(a,b):
+    c = "c"
+    def inner():
+        return a + b + c
+    return inner()
+print(outer("a", "b"))
+
+# Can modify objects but not reassign unless using nonlocal keyword
+def double(arr, val):
+    def helper():
+        # Modifying array works
+        for i, n in enumerate(arr):
+            arr[i] *= 2
+        # will only modify val in the helper scope
+        # val *= 2
+        # this will modify val outside helper scope
+        nonlocal val
+        val *= 2
+    helper()
+    print(arr, val)
+nums = [1, 2]
+val = 3
+double (nums, val)
+
 
 
 
