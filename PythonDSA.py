@@ -134,5 +134,22 @@ arr4 = [[0] * 4 for i in range(4)]
 print (arr4) # [[0 0 0 0] [0 0 0 0] [0 0 0 0] [0 0 0 0]]
 arr5 = [[0] * 4] * 4    # prints the same, but modifying one row would change in all other rows - not creating unique rows
 
+# Strings are similar to arrays. Slice. But immutable - cannot replace in index, can be added, convert str to int and vice versa, ASCII - ord, .join() list with a delimiter
+str0 = "abc"
+print (str0[0:2])   # ab
+# str[2] = 'd' # not possible as strings are immutable
+str0 += "def"
+print (str0) # abcdef
+str1 = "123"
+str2 = "456"
+print (int(str1) + int(str2))   # 579
+str3 = 123
+str4 = 456
+print (str(str1) + str(str2))   # 123456
+print (ord("a"))    # 97
+print (ord("b"))    # 98
+strings = ["ab", "cd", "ef"]
+print (" ".join(strings))   # ab cd ef 
+print ("".join(strings))    # abcdef
 
-
+ 
