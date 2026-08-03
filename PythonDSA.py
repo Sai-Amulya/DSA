@@ -152,4 +152,17 @@ strings = ["ab", "cd", "ef"]
 print (" ".join(strings))   # ab cd ef 
 print ("".join(strings))    # abcdef
 
- 
+# Queues - double ended -> append, pop(like stack), appendleft, popleft 
+from collections import deque
+queue = deque()
+queue.append(1)
+queue.append(2)
+print(queue)    # 1 2
+queue.pop()
+print(queue)    # 1
+queue.appendleft(2)
+print(queue)    # 2 1
+queue.appendleft(3)
+print(queue)    # 3 2 1
+queue.popleft()
+print(queue)    # 2 1 
