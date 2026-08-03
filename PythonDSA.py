@@ -227,6 +227,37 @@ mySet.add((1,2))
 print((1,2) in mySet)
 # myMap[[3,4]] = 5 is not possible as lists cant be keys
 
+# Heaps: mostly used to find min, max from a set of values, arrays under the hood, heapq.heappush, heappop, loop: while len pop
+# minheap by default, to make maxheap, * -1 while pushing and popping, heapify to build heap from a list- linear time 
+''' heapq implements a min-heap using a binary tree stored in a flat list, where the only guarantee is 
+heap[i] <= heap[2*i+1] and heap[i] <= heap[2*i+2], every parent is ≤ both its children.
+Since it is "every" parent, the first element will always be the least. Here, if directly printed without pop, the first element 
+will be least but the others wont be sorted as they just need to satisfy the minheap rule.
+But if you pop it, everytime the first element is the least of all and hence it is printed in sorted form. '''
+import heapq
+minHeap = []
+heapq.heappush(minHeap, 3)
+heapq.heappush(minHeap, 2)
+heapq.heappush(minHeap, 4)
+print(minHeap)  # 2 3 4
+print(minHeap[0])   # 2
+while len(minHeap):
+    print(heapq.heappop(minHeap))   # 2 3 4 
+maxHeap = []
+heapq.heappush(maxHeap, -3)
+heapq.heappush(maxHeap, -2)
+heapq.heappush(maxHeap, -4)
+print(maxHeap)
+print(-1 * maxHeap[0])  # 4 
+while len(maxHeap):
+    print(-1 * heapq.heappop(maxHeap))   # 4 3 2 
+arr = [2, 1, 8, 4, 5]
+heapq.heapify(arr)
+print(arr)
+while arr:
+    print(heapq.heappop(arr))   # 1 2 4 5 8
+
+
 
 
 
