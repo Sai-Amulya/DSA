@@ -152,7 +152,7 @@ strings = ["ab", "cd", "ef"]
 print (" ".join(strings))   # ab cd ef 
 print ("".join(strings))    # abcdef
 
-# Queues - double ended -> append, pop(like stack), appendleft, popleft 
+# Queues - double ended -> append, pop(like stack), appendleft, popleft(constant time unlike with a stack)
 from collections import deque
 queue = deque()
 queue.append(1)
@@ -166,3 +166,27 @@ queue.appendleft(3)
 print(queue)    # 3 2 1
 queue.popleft()
 print(queue)    # 2 1 
+
+# Hashset - search, add, remove in constant time, no duplicates, len, in, remove, list to set, set comprehension
+'''A set is implemented as a hash table. When you add 'a', 'b', 'c', Python computes a hash for each string and uses 
+that hash to decide which "slot" it goes into internally. When you print the set, items come out in whatever order 
+their slots happen to be in — which depends on the hash values, not the order you wrote them in.
+- It's not random each run (within the same Python version/session) — 
+string hashing is deterministic within a run, but Python randomizes string hash seeds between runs for security reasons 
+(to prevent hash-collision attacks). So you might see {'a', 'b', 'c'} one time you run the script and {'c', 'b', 'a'} 
+another time.'''
+mySet = set()
+mySet.add(1)
+mySet.add(2)
+print(mySet)    # 1 2 
+print(len(mySet))   # 2
+print(1 in mySet)   # True
+print(3 in mySet)   # False
+mySet.remove(2)
+print(mySet)    # 1 
+mySet1 = set(['a', 'b', 'c'])
+print(mySet1)   # a, b, c
+mySet2 = {i for i in range(5)}
+print(mySet2)   # 0, 1, 2, 3, 4
+
+
