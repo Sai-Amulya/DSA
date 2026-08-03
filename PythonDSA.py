@@ -207,12 +207,26 @@ myMap = {"alex": 90, "ben": 70}
 print (myMap)
 myMap1 = { i: i+2 for i in range(5)}
 print(myMap1)
-for key in mydict:
-    print(key, mydict[key])
-for val in mydict.values():
+for key in myMap:
+    print(key, myMap[key])
+for val in myMap.values():
     print(val)
-for key,val in mydict.items():
+for key,val in myMap.items():
     print(key,val)
+
+# Tuples: like arrays but immutable, indexed but not modify, used as key for hashmap/set as list cant be and use tuple to search
+tup = (1, 2, 3)
+print (tup)     # 1 2 3
+print(tup[0])   # 1
+print(tup[-1])  # 3
+# tup[0] = 0 is not possible
+myMap = {(1,2): 3}
+print(myMap[(1,2)])
+mySet = set()
+mySet.add((1,2))
+print((1,2) in mySet)
+# myMap[[3,4]] = 5 is not possible as lists cant be keys
+
 
 
 
