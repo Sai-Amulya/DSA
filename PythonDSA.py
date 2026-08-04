@@ -298,9 +298,3 @@ obj = MyClass([1, 2, 3, 4])
 print(obj.nums)         # [1, 2, 3, 4]
 print(obj.getLength())  # 4
 print(obj.getDoubleLength())    # 8
-
-
-
-
-
-
